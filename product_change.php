@@ -29,6 +29,7 @@
     }
     // 登録した全ての商品情報表示する
     $items = ItemDAO::get_all_items();
+    
     // viewファイルの表示
     include_once 'admin_views/product_change_view.php';
 ?>

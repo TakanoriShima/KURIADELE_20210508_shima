@@ -238,10 +238,13 @@
                 self::close_connection($pdo, $stmp);
             }
         }
+        
         // // 指定した商品の公開非公開を変更するメソッド
         // // $id: 商品番号
         // // $flag: 選択したフラグ
-        public static function update($id, $flag){
+        // flag = 1; 公開
+        // flag = 0; 非公開
+        public static function change_flag($id, $flag){
             $pdo = null;
             $stmp = null;
             try{
@@ -255,6 +258,12 @@
                 // update本番実行
                 $stmt->execute();
                 
+                if((int)$flag === 0){
+                    return 'idが' . $id . 'の商品を非公開にしました';
+                }else{
+                    return 'idが' . $id . 'の商品を公開にしました';
+                }
+                
                 // return $item;
                 
             }catch(PDOException $e){
@@ -265,6 +274,8 @@
                 self::close_connection($pdo, $stmp);
             }
         }
-        
+
     }
+    
+    
 ?>

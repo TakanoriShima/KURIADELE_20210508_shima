@@ -88,7 +88,7 @@
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                         <td class='table_td'>
                                     <!--商品が表示されていない（0の）場合に実行-->
-                                    <?php if($item->flag !== 0): ?>
+                                    <?php if((int)($item->flag) === 0): ?>
                                         <form method='POST' action='flag.php' class='select_td'>
                                             <input type='submit' value='公開にする' class='button'/>
                                             <input type='hidden' name='flag' value='1'>
